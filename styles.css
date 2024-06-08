@@ -41,3 +41,11 @@ body {
 #next-button {
     display: none;
 }
+
+.correct {
+    background-color: #28a745 !important;
+}
+
+.wrong {
+    background-color: #dc3545 !important;
+}
