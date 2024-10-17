@@ -1,22 +1,43 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Викторина</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>С Днём Рождения, симпатулька!</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f8f9fa;
+            text-align: center;
+            padding: 50px;
+        }
+        h1 {
+            color: #d63384;
+            font-size: 48px;
+        }
+        p {
+            font-size: 24px;
+            color: #343a40;
+        }
+        .btn {
+            margin-top: 30px;
+            padding: 15px 30px;
+            background-color: #d63384;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 20px;
+            cursor: pointer;
+        }
+        .btn:hover {
+            background-color: #c62e7a;
+        }
+    </style>
 </head>
 <body>
-    <div id="quiz-container">
-        <h1>Викторина 7 June 2024 19:39</h1>
-        <div id="question-container">
-            <div id="question">Вопрос</div>
-            <div id="answer-buttons" class="btn-container">
-                <!-- Кнопки с ответами будут добавлены здесь динамически -->
-            </div>
-        </div>
-        <button id="next-button" class="btn">Следующий</button>
-    </div>
-    <script src="script.js"></script>
+    <h1>С Днём Рождения, симпатулька!</h1>
+    <p>Ты – самое прекрасное, что случилось в моей жизни. С каждым днём я люблю тебя всё больше и больше.</p>
+    <p>Сегодня твой день, и я хочу, чтобы он был таким же удивительным, как ты!</p>
+    <button class="btn" onclick="alert('Люблю тебя! ❤️')">Нажми, если любишь меня</button>
 </body>
 </html>
