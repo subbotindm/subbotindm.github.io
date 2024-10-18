@@ -1,31 +1,49 @@
 body {
     font-family: 'Arial', sans-serif;
-    background-color: #f8f9fa;
+    background-color: #f0f4f8;
+    background-image: url('5297135.jpg'); /* Заменить на реальный путь к изображению паттерна */
+    background-size: cover;
     text-align: center;
-    padding: 50px;
+    padding: 20px;
+    margin: 0;
 }
 
 h1 {
-    color: #d63384;
-    font-size: 48px;
+    color: #2b7a78; /* Насыщенный бирюзовый цвет */
+    font-size: 36px;
+    margin-bottom: 20px;
 }
 
 p {
-    font-size: 24px;
-    color: #343a40;
+    font-size: 18px;
+    color: #3d405b;
+    margin-bottom: 15px;
+    line-height: 1.6;
 }
 
-.btn {
+.magic-block {
+    background-color: #ffe5d9;
+    border-radius: 10px;
+    padding: 20px;
     margin-top: 30px;
-    padding: 15px 30px;
-    background-color: #d63384;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    font-size: 20px;
-    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-.btn:hover {
-    background-color: #c62e7a;
+.magic-block p {
+    font-size: 18px;
+    color: #2b7a78;
+}
+
+@media (max-width: 600px) {
+    h1 {
+        font-size: 28px;
+    }
+
+    p {
+        font-size: 16px;
+    }
+
+    .magic-block p {
+        font-size: 16px;
+    }
 }
