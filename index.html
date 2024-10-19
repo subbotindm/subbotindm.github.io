@@ -3,14 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>С Днём Рождения, симпатулька!</title>
+    <title>С днём рождения!</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <h1>С Днём Рождения, симпатулька!</h1>
-    <p>Сегодня тебя поздравить пришли удивительные существа. Они решили, что ты должна находить их в каждом уголке, куда бы ни пошла. И потому они разбрелись по самым разным местам. Найдёшь ли ты их всех?</p>
+    <h1>С днём рождения, симпатулька!🥳</h1>
+
     <div class="magic-block">
-        <p>Начнём с классики. Помнишь, где стоит обеденный стол? Там тебя уже ждёт один из них. Он не терпится увидеть твою улыбку!</p>
+        <p>Я скучал по тебе целый год!!! Но вот мы наконец встретились! Но знаешь что? Я сегодня не один. Сегодня тебя пришли поздравить все-все-все! И они хотели, чтобы вот куда бы ты ни пошла, в каждом углу ты бы находила кого-то. Ну вот и забились они по углам... Найдешь всех?</p>
     </div>
+
+    <!-- Сворачиваемый блок с видео -->
+    <div class="collapsible">
+        <div class="shortcut" onclick="toggleContent(this, 'video-iframe')">Моё видео для тебя</div>
+        <div class="collapsible-content">
+            <iframe src="https://www.tiktok.com/embed/v3/7277762241536036104" width="300" height="625" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+            <!--<iframe id="video-iframe" width="300" height="625" frameborder="0" allow="autoplay"></iframe>-->
+        </div>
+    </div>
+
+
+    <!-- Сворачиваемый блок с инструкцией -->
+    <div class="collapsible">
+        <div class="shortcut" onclick="toggleContent(this)">Куда дальше?</div>
+        <div class="magic-block" style="display: none;">
+            <p>Начни с той самой. Ну ты ее уже знаешь, она к тебе всю недельку приходила, только вы никак не пересекались. У неё работа просто рано утром, ты прости её. Но сегодня она здесь! Ищи скорее, а то она совсем замёрзнет🥶</p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
 </body>
 </html>
