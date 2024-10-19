@@ -1,9 +1,9 @@
 body {
     font-family: 'Arial', sans-serif;
-    background-color: #f0f4f8; /* Светло-серый фон */
-    background-image: url('5297135.jpg'); /* Заменить на реальный путь к изображению паттерна */
+    background-color: ##fde5d885; 
+    background-image: url('5297135.jpg');
     background-size: cover;
-    background-blend-mode: lighten; /* Лёгкое приглушение паттерна */
+    background-blend-mode: soft-light; 
     text-align: center;
     padding: 20px;
     margin: 0;
