@@ -3,11 +3,35 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>С Днём Рождения, симпатулька!</title>
+    <title>Куд-кудах</title>
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <h1>С Днём Рождения, симпатулька!</h1>
-    <p>Это второй шаг.</p>
+    <h1>Куд-кудах, моя дорогейшоя!</h1>
+
+    <div class="magic-block">
+        <p>Что, все мои порадочки нашла? Ай, умничка!!! Всё для тебя, моя ты нежная, всё для моей роднулички! Поздравляю, моя хорошая!</p>
+    </div>
+
+    <!-- Сворачиваемый блок с видео -->
+    <div class="collapsible">
+        <div class="shortcut" onclick="toggleContent(this, 'video-iframe')">🎥 Видео-подсказка</div>
+        <div class="collapsible-content">
+            <iframe src="https://www.tiktok.com/embed/v3/7293251558542757126" width="300" height="625" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+            <!--<iframe id="video-iframe" width="300" height="625" frameborder="0" allow="autoplay"></iframe>-->
+        </div>
+    </div>
+
+
+    <!-- Сворачиваемый блок с инструкцией -->
+    <div class="collapsible">
+        <div class="shortcut" onclick="toggleContent(this)">🔍 Показать инструкцию</div>
+        <div class="magic-block" style="display: none;">
+            <p>Пара моих подарочков уже должны были намекнуть тебе, где смотреть дальше. Ещё не знаешь? Ну как же, делу время, а творчеству место, как говорится. Ну и человечек, который тоже рвётся тебя поздравить, тоже ооочень творческий, скрывать не буду.</p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
 </body>
 </html>
