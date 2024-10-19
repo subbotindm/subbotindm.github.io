@@ -48,3 +48,48 @@ p {
         font-size: 16px;
     }
 }
+
+/* Остальные стили остаются без изменений */
+
+.collapsible {
+    margin-top: 20px;
+    text-align: left;
+}
+
+.shortcut {
+    background-color: #ffb6c1; /* Нежно-розовый цвет */
+    color: #fff;
+    padding: 15px;
+    font-size: 18px;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: center;
+    width: 100%;
+    display: inline-block;
+    margin-bottom: 10px;
+    transition: background-color 0.3s;
+}
+
+.shortcut:hover {
+    background-color: #ff8c94;
+}
+
+.collapsible-content {
+    display: none; /* Контент свёрнут по умолчанию */
+    overflow: hidden;
+    padding: 10px;
+    background-color: #f9f9f9;
+    border-radius: 5px;
+    margin-top: 10px;
+}
+
+.collapsible-content p {
+    margin: 0;
+    color: #3d405b;
+}
+
+.collapsible-content iframe {
+    width: 100%;
+    border-radius: 5px;
+}
+
