@@ -1,7 +1,7 @@
 body {
     font-family: 'Arial', sans-serif;
     background-color: #f0f4f8; /* Светло-серый фон */
-    background-image: url('5297135.png'); /* Заменить на реальный путь к изображению паттерна */
+    background-image: url('5297135.jpg'); /* Заменить на реальный путь к изображению паттерна */
     background-size: cover;
     background-blend-mode: lighten; /* Лёгкое приглушение паттерна */
     text-align: center;
