@@ -1,9 +1,10 @@
 body {
     font-family: 'Arial', sans-serif;
-    background-color: ##fde5d885; 
-    background-image: url('5297135.jpg');
+    background-color: #fde5d885; /* Светло-серый фон */
+    background-image: url('https://subbotindm.github.io/5297135.jpg'); /* Заменить на реальный путь к изображению паттерна */
     background-size: cover;
-    background-blend-mode: soft-light; 
+    background-blend-mode: lighten; /* Лёгкое приглушение паттерна */
+    background-attachment: fixed; /* Фиксированный фон */
     text-align: center;
     padding: 20px;
     margin: 0;
@@ -41,15 +42,14 @@ p {
     }
 
     p {
-        font-size: 16px;
+        font-size: 18px;
     }
 
     .magic-block p {
-        font-size: 16px;
+        font-size: 18px;
     }
 }
 
-/* Остальные стили остаются без изменений */
 
 .collapsible {
     margin-top: 20px;
@@ -64,10 +64,13 @@ p {
     border-radius: 5px;
     cursor: pointer;
     text-align: center;
-    width: 100%;
+    width: calc(100% - 20px); /* Ширина с учётом отступов */
     display: inline-block;
     margin-bottom: 10px;
     transition: background-color 0.3s;
+    margin-left: 10px;
+    margin-right: 10px;
+    box-sizing: border-box; /* Включаем отступы в расчёт ширины */
 }
 
 .shortcut:hover {
@@ -81,6 +84,10 @@ p {
     background-color: #f9f9f9;
     border-radius: 5px;
     margin-top: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
+    width: calc(100% - 20px); /* Ширина с учётом отступов */
+    box-sizing: border-box; /* Включаем отступы в расчёт ширины */
 }
 
 .collapsible-content p {
@@ -92,4 +99,3 @@ p {
     width: 100%;
     border-radius: 5px;
 }
-
