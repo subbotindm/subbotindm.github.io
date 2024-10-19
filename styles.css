@@ -1,29 +1,29 @@
 body {
     font-family: 'Arial', sans-serif;
-    background-color: #f2f2f2; /* Светло-серый, приглушённый фон */
-    background-image: url('5297135.jpg'); /* Заменить на реальный путь к изображению паттерна */
+    background-color: #f0f4f8; /* Светло-серый фон */
+    background-image: url('confetti-pattern.png'); /* Заменить на реальный путь к изображению паттерна */
     background-size: cover;
-    background-blend-mode: soft-light; /* Приглушает яркость изображения паттерна */
+    background-blend-mode: lighten; /* Лёгкое приглушение паттерна */
     text-align: center;
     padding: 20px;
     margin: 0;
 }
 
 h1 {
-    color: #4a6fa5; /* Спокойный синий цвет */
+    color: #2b7a78; /* Насыщенный бирюзовый цвет */
     font-size: 36px;
     margin-bottom: 20px;
 }
 
 p {
     font-size: 18px;
-    color: #555555; /* Приглушённый тёмно-серый цвет */
+    color: #3d405b; /* Тёмный цвет для контраста */
     margin-bottom: 15px;
     line-height: 1.6;
 }
 
 .magic-block {
-    background-color: #e8eff1; /* Светло-голубой, приглушённый цвет блока */
+    background-color: #ffe5d9; /* Светло-розовый фон для блока */
     border-radius: 10px;
     padding: 20px;
     margin-top: 30px;
@@ -32,7 +32,7 @@ p {
 
 .magic-block p {
     font-size: 18px;
-    color: #4a6fa5; /* Такой же синий, как в заголовке */
+    color: #2b7a78; /* Бирюзовый цвет текста внутри блока */
 }
 
 @media (max-width: 600px) {
