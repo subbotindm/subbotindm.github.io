@@ -3,30 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>С Днём Рождения, симпатулька!</title>
+    <title>Время пожеланий!</title>
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <h1>С Днём Рождения, симпатулька!</h1>
-    <p>Сегодня тебя поздравить пришли удивительные существа. Они решили, что ты должна находить их в каждом уголке, куда бы ни пошла. И потому они разбрелись по самым разным местам. Найдёшь ли ты их всех?</p>
-    
+    <h1>Время пожеланий!</h1>
+
     <div class="magic-block">
-        <p>Начнём с классики. Помнишь, где стоит обеденный стол? Там тебя уже ждёт один из них. Он не терпится увидеть твою улыбку!</p>
+        <p>Столько всего тебе наговорили, а как будто и не пожелали ничего. Непорядок! Срочно исправляем!</p>
     </div>
 
     <!-- Сворачиваемый блок с видео -->
     <div class="collapsible">
-        <div class="shortcut" onclick="toggleContent(this)">🎥 Видео-подсказка</div>
+        <div class="shortcut" onclick="toggleContent(this, 'video-iframe')">🎥 Моё видео для тебя</div>
         <div class="collapsible-content">
-            <iframe src="https://www.tiktok.com/embed/v2/ZS2o55Sau" width="300" height="533" frameborder="0"></iframe>
+            <iframe src="https://www.tiktok.com/embed/v3/7328889870666026261" width="300" height="625" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+            <!--<iframe id="video-iframe" width="300" height="625" frameborder="0" allow="autoplay"></iframe>-->
         </div>
     </div>
 
+
     <!-- Сворачиваемый блок с инструкцией -->
     <div class="collapsible">
-        <div class="shortcut" onclick="toggleContent(this)">🔍 Показать инструкцию</div>
-        <div class="collapsible-content">
-            <p>Следующая подсказка ждёт тебя в самом уютном месте твоего дома, где ты любишь расслабляться. Может быть, она спрятана в любимом пледе или на диване? Отправляйся туда и найди её!</p>
+        <div class="shortcut" onclick="toggleContent(this)">И напоследок😍</div>
+        <div class="magic-block" style="display: none;">
+            <p>Вот ты и нашла всех нас!! Всей дружной компанией поздравляем тебя с твоим днём и желаем всего самого-самого! И никогда-никогда не забывай, что ты самый прекрасный в мире человечек. Только ради тебя стоило придумать этот мир!</p>
         </div>
     </div>
 
