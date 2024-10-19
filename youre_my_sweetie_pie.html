@@ -3,11 +3,35 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>С Днём Рождения, симпатулька!</title>
+    <title>С днём рождения!</title>
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <h1>С Днём Рождения, симпатулька!</h1>
-    <p>Это третий шаг.</p>
+    <h1>А, ой. С днём рождения!!!</h1>
+
+    <div class="magic-block">
+        <p>Не думал, что ты меня застанешь именно здесь. Как неловко то! Ладно, все свои... Поздравляяяяяююююю! Веселья до заглядения!!! И миллион ночей и днееееей!</p>
+    </div>
+
+    <!-- Сворачиваемый блок с видео -->
+    <div class="collapsible">
+        <div class="shortcut" onclick="toggleContent(this, 'video-iframe')">🎥 Видео-подсказка</div>
+        <div class="collapsible-content">
+            <iframe src="https://www.tiktok.com/embed/v3/7371507873064455467" width="300" height="625" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+            <!--<iframe id="video-iframe" width="300" height="625" frameborder="0" allow="autoplay"></iframe>-->
+        </div>
+    </div>
+
+
+    <!-- Сворачиваемый блок с инструкцией -->
+    <div class="collapsible">
+        <div class="shortcut" onclick="toggleContent(this)">🔍 Показать инструкцию</div>
+        <div class="magic-block" style="display: none;">
+            <p>Самое время принарядиться, к тому же там кое-кто тебя ждет!</p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
 </body>
 </html>
