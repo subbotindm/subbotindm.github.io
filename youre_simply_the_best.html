@@ -3,11 +3,35 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>С Днём Рождения, симпатулька!</title>
+    <title>Поздравляю, мой ангел</title>
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <h1>С Днём Рождения, симпатулька!</h1>
-    <p>Это пятый шаг.</p>
+    <h1>Поздравляю, мой ангел</h1>
+
+    <div class="magic-block">
+        <p>Эй, ты объявлена в розыск, ты знала? Подробности внизу👇</p>
+    </div>
+
+    <!-- Сворачиваемый блок с видео -->
+    <div class="collapsible">
+        <div class="shortcut" onclick="toggleContent(this, 'video-iframe')">🎥 Видео-подсказка</div>
+        <div class="collapsible-content">
+            <iframe src="https://www.tiktok.com/embed/v3/7064446431251254530" width="300" height="625" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+            <!--<iframe id="video-iframe" width="300" height="625" frameborder="0" allow="autoplay"></iframe>-->
+        </div>
+    </div>
+
+
+    <!-- Сворачиваемый блок с инструкцией -->
+    <div class="collapsible">
+        <div class="shortcut" onclick="toggleContent(this)">🔍 Показать инструкцию</div>
+        <div class="magic-block" style="display: none;">
+            <p>Мы с ребятами посовещались и поняли, что очень любим кольцевые композиции. Если ты понимаешь, о чем я😉</p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
 </body>
 </html>
