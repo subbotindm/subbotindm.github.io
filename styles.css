@@ -66,7 +66,7 @@ em {
 }
 
 .shortcut {
-    background-color: #b56576; /* Лавандовый цвет */
+    background-color: #2b7a78; /* Насыщенный бирюзовый цвет */
     color: #fff;
     padding: 15px;
     font-size: 18px;
@@ -83,11 +83,11 @@ em {
 }
 
 .shortcut:hover {
-    background-color: #9b4a5e; /* Темный лавандовый при наведении */
+    background-color: #205d63; /* Темный бирюзовый цвет при наведении */
 }
 
 .shortcut:active {
-    background-color: #f2d7e0; /* Блеклый лавандовый при нажатии */
+    background-color: #88d8c0; /* Светло-бирюзовый цвет при нажатии */
 }
 
 .collapsible-content {
