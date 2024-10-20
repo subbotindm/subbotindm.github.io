@@ -19,6 +19,7 @@ h1 {
 p {
     font-size: 18px;
     color: #3d405b; /* Тёмный цвет для контраста */
+    margin-top: 15px;
     margin-bottom: 15px;
     line-height: 1.6;
 }
