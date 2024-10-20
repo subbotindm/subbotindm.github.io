@@ -3,11 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>С Днём Рождения, симпатулька!</title>
+    <title>С днём рождения, утютюшка!</title>
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <h1>С Днём Рождения, симпатулька!</h1>
-    <p>Это доп шаг.</p>
+    <h1>С днём рождения, утютюшка!</h1>
+
+    <div class="magic-block">
+        <p>Поздравляю, бусиночка моя сладенькая!</p>
+    </div>
+
+    <!-- Сворачиваемый блок с видео -->
+    <div class="collapsible">
+        <div class="shortcut" onclick="toggleContent(this, 'video-iframe')">🎥 Моё видео для тебя</div>
+        <div class="collapsible-content">
+            <iframe src="https://www.tiktok.com/embed/v3/6992559003255524609" width="300" height="595" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+            <!--<iframe id="video-iframe" width="300" height="625" frameborder="0" allow="autoplay"></iframe>-->
+        </div>
+    </div>
+
+    <script src="script.js"></script>
 </body>
 </html>
