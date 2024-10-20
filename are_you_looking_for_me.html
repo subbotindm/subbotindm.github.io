@@ -3,11 +3,77 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>С Днём Рождения, симпатулька!</title>
+    <title>С Днём Рождения!</title>
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <h1>С Днём Рождения, симпатулька!</h1>
-    <p>Это доп шаг.</p>
+    <h1>Ура, ты нашла аудио поздравление!</h1>
+
+    <!-- Аудиоплеер -->
+    <div class="audio-block">
+        <p>Эта песня не только звучит для тебя. Она для тебя была написана!</p>
+        <audio controls>
+            <source src="Sunset in Barcelona.mp3" type="audio/mpeg">
+            Ваш браузер не поддерживает воспроизведение аудиофайлов.
+        </audio>
+    </div>
+    
+    <div class="collapsible">
+        <div class="shortcut" onclick="toggleContent(this)">🔤 Смотреть слова</div>
+        <div class="magic-block" style="display: none;">
+            <p><b>Sunset in Barcelona</b></p>
+            
+            <em>[Verse]</em>
+            <p>Sunset in Barcelona's sky
+            Your laugh makes the stars feel shy
+            In theaters where you bring life
+            On stage you cut through like a knife</p>
+            
+            <em>[Verse]</em>
+            <p>You're a canvas and a brush divine
+            Each stroke a story
+            Each hue a line
+            In films you dance
+            In art you fly
+            Your spirit paints the way up high</p>
+            
+            <em>[Chorus]</em>
+            <p>Happy birthday
+            Light of my eyes
+            Every day with you’s a sweet surprise
+            Barcelona sings your name so clear
+            In every role
+            In every year</p>
+            
+            <em>[Bridge]</em>
+            <p>Your heart's a theater
+            Your soul the show
+            You're the masterpiece in full rainbow
+            With every film you capture grace
+            In every painting
+            Find your trace</p>
+            
+            <em>[Verse]</em>
+            <p>In this city where dreams collide
+            Beside you
+            Love
+            I’m filled with pride
+            Every script
+            Each line you say
+            Lights up the night
+            Turns dark to day</p>
+
+            <em>[Chorus]</em>
+            <p>Happy birthday
+            Light of my eyes
+            Every day with you’s a sweet surprise
+            Barcelona sings your name so clear
+            In every role
+            In every year</p>
+        </div>
+    </div>
+    
+    <script src="script.js"></script>
 </body>
 </html>
