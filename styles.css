@@ -66,7 +66,7 @@ em {
 }
 
 .shortcut {
-    background-color: #ffb6c1; /* Нежно-розовый цвет */
+    background-color: #ff6075; /* Еще более насыщенный розовый цвет */
     color: #fff;
     padding: 15px;
     font-size: 18px;
@@ -83,7 +83,11 @@ em {
 }
 
 .shortcut:hover {
-    background-color: #ff8c94;
+    background-color: #ff4055; /* Насыщенный цвет при наведении */
+}
+
+.shortcut:active {
+    background-color: #ff99aa; /* Более блеклый цвет при нажатии */
 }
 
 .collapsible-content {
