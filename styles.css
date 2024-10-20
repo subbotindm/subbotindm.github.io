@@ -66,28 +66,28 @@ em {
 }
 
 .shortcut {
-    background-color: #ff6075; /* Еще более насыщенный розовый цвет */
+    background-color: #b56576; /* Лавандовый цвет */
     color: #fff;
     padding: 15px;
     font-size: 18px;
     border-radius: 5px;
     cursor: pointer;
     text-align: center;
-    width: calc(100% - 20px); /* Ширина с учётом отступов */
+    width: calc(100% - 20px);
     display: inline-block;
     margin-bottom: 10px;
     transition: background-color 0.3s;
     margin-left: 10px;
     margin-right: 10px;
-    box-sizing: border-box; /* Включаем отступы в расчёт ширины */
+    box-sizing: border-box;
 }
 
 .shortcut:hover {
-    background-color: #ff4055; /* Насыщенный цвет при наведении */
+    background-color: #9b4a5e; /* Темный лавандовый при наведении */
 }
 
 .shortcut:active {
-    background-color: #ff99aa; /* Более блеклый цвет при нажатии */
+    background-color: #f2d7e0; /* Блеклый лавандовый при нажатии */
 }
 
 .collapsible-content {
