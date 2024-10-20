@@ -24,6 +24,14 @@ p {
     line-height: 1.6;
 }
 
+em {
+    font-size: 18px;
+    color: #2b7a78;
+    margin-top: 15px;
+    margin-bottom: -15px;
+    line-height: 1.6;
+}
+
 .magic-block {
     background-color: #ffe5d9; /* Светло-розовый фон для блока */
     border-radius: 10px;
@@ -98,5 +106,25 @@ p {
 
 .collapsible-content iframe {
     width: 100%;
+    border-radius: 5px;
+}
+
+.audio-block {
+    margin-top: 30px;
+    background-color: #ffe5d9; /* Светло-розовый фон */
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.audio-block p {
+    font-size: 18px;
+    color: #2b7a78; /* Бирюзовый цвет текста */
+    margin-bottom: 10px;
+}
+
+audio {
+    width: 100%;
+    outline: none;
     border-radius: 5px;
 }
