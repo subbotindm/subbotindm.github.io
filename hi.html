@@ -3,11 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>С Днём Рождения, симпатулька!</title>
+    <title>Привет</title>
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <h1>С Днём Рождения, симпатулька!</h1>
-    <p>Это доп шаг.</p>
+    <h1>Привет!</h1>
+
+    <div class="magic-block">
+        <p>Я тут это... Не думал, что ты найдешь меня... Ну и это... С днём рождения! У меня правда ничего н... А нет, есть! Сыграю для тебя!</p>
+    </div>
+
+    <!-- Сворачиваемый блок с видео -->
+    <div class="collapsible">
+        <div class="shortcut" onclick="toggleContent(this, 'video-iframe')">🎥 Моё видео для тебя</div>
+        <div class="collapsible-content">
+            <iframe src="https://www.tiktok.com/embed/v3/6971896197158243589" width="300" height="625" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+            <!--<iframe id="video-iframe" width="300" height="625" frameborder="0" allow="autoplay"></iframe>-->
+        </div>
+    </div>
+
+    <!-- Сворачиваемый блок с инструкцией -->
+    <div class="collapsible">
+        <div class="shortcut" onclick="toggleContent(this)">🔍 Куда дальше?</div>
+        <div class="magic-block" style="display: none;">
+            <p>А я не знаю🙀</p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
 </body>
 </html>
