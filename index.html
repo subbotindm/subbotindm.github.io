@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>КБЖУ Трекер</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+    }
+    h1, h2, h3 {
+      margin-top: 20px;
+    }
+    /* Стили для модального окна (popup) */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 100;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgba(0,0,0,0.4);
+    }
+    .modal-content {
+      background-color: #fff;
+      margin: 10% auto;
+      padding: 20px;
+      border: 1px solid #888;
+      width: 300px;
+      position: relative;
+    }
+    .close {
+      position: absolute;
+      right: 10px;
+      top: 5px;
+      font-size: 22px;
+      cursor: pointer;
+    }
+    table {
+      border-collapse: collapse;
+      width: 100%;
+      margin-top: 10px;
+    }
+    table, th, td {
+      border: 1px solid #ddd;
+    }
+    th, td {
+      padding: 8px;
+      text-align: center;
+    }
+    td[contenteditable="true"] {
+      background-color: #f9f9f9;
+    }
+    button {
+      margin-top: 10px;
+      padding: 5px 10px;
+    }
+  </style>
+</head>
+<body>
+  <h1>КБЖУ Трекер</h1>
+  
+  <!-- Кнопка для открытия попапа с нормой -->
+  <button id="openNormPopup">Установить норму КБЖУ</button>
+  
+  <!-- Попап для просмотра и редактирования норм -->
+  <div id="normPopup" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <h2>Норма КБЖУ</h2>
+      <p>Калории (ккал): <span id="normCaloriesDisplay"></span></p>
+      <p>Белки (г): <span id="normProteinsDisplay"></span></p>
+      <p>Жиры (г): <span id="normFatsDisplay"></span></p>
+      <p>Углеводы (г): <span id="normCarbsDisplay"></span></p>
+      <h3>Обновить норму</h3>
+      <label>Калории (ккал): <input type="number" id="normCaloriesInput"></label><br>
+      <label>Белки (г): <input type="number" id="normProteinsInput"></label><br>
+      <label>Жиры (г): <input type="number" id="normFatsInput"></label><br>
+      <label>Углеводы (г): <input type="number" id="normCarbsInput"></label><br>
+      <button id="saveNorm">Сохранить</button>
+    </div>
+  </div>
+  
+  <!-- Раздел добавления нового блюда -->
+  <button id="openDishForm">Добавить блюдо</button>
+  <div id="dishForm" style="display:none; margin-top: 10px;">
+    <h2>Новое блюдо</h2>
+    <label>Выберите изображение: <input type="file" id="dishImage"></label><br>
+    <label>Вес блюда (г): <input type="number" id="dishWeight"></label><br>
+    <button id="submitDish">Отправить блюдо</button>
+  </div>
+  
+  <!-- Таблица с введёнными блюдами -->
+  <h2>Список блюд</h2>
+  <table id="dishTable">
+    <thead>
+      <tr>
+        <th>Блюдо</th>
+        <th>Калории (ккал)</th>
+        <th>Белки (г)</th>
+        <th>Жиры (г)</th>
+        <th>Углеводы (г)</th>
+        <th>Вес (г)</th>
+        <th>Действия</th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- Строки добавляются динамически -->
+    </tbody>
+  </table>
+  
+  <!-- Отображение текущей дневной суммы -->
+  <h2>Текущая дневная сумма</h2>
+  <p>Калории: <span id="totalCalories">0</span> / <span id="normCalories">0</span> (<span id="percCalories">0</span>%)</p>
+  <p>Белки: <span id="totalProteins">0</span> / <span id="normProteins">0</span> (<span id="percProteins">0</span>%)</p>
+  <p>Жиры: <span id="totalFats">0</span> / <span id="normFats">0</span> (<span id="percFats">0</span>%)</p>
+  <p>Углеводы: <span id="totalCarbs">0</span> / <span id="normCarbs">0</span> (<span id="percCarbs">0</span>%)</p>
+  
+  <!-- Кнопка для сброса значений -->
+  <button id="resetTotals">Сбросить значения</button>
+  
+  <script>
+    // Исходные значения нормы (можно задать любые начальные значения)
+    let norm = {
+      calories: 2000,
+      proteins: 50,
+      fats: 70,
+      carbs: 300
+    };
+    
+    // Массив для хранения данных блюд
+    let dishes = [];
+    
+    // Функция для обновления отображения норм на странице
+    function updateNormDisplays() {
+      document.getElementById('normCaloriesDisplay').textContent = norm.calories;
+      document.getElementById('normProteinsDisplay').textContent = norm.proteins;
+      document.getElementById('normFatsDisplay').textContent = norm.fats;
+      document.getElementById('normCarbsDisplay').textContent = norm.carbs;
+      
+      document.getElementById('normCalories').textContent = norm.calories;
+      document.getElementById('normProteins').textContent = norm.proteins;
+      document.getElementById('normFats').textContent = norm.fats;
+      document.getElementById('normCarbs').textContent = norm.carbs;
+    }
+    
+    // Управление модальным окном для установки нормы
+    const normPopup = document.getElementById('normPopup');
+    const openNormPopupButton = document.getElementById('openNormPopup');
+    const closeSpan = document.querySelector('.modal .close');
+    
+    openNormPopupButton.addEventListener('click', function() {
+      normPopup.style.display = 'block';
+      updateNormDisplays();
+    });
+    
+    closeSpan.addEventListener('click', function() {
+      normPopup.style.display = 'none';
+    });
+    
+    // Сохранение обновлённой нормы
+    document.getElementById('saveNorm').addEventListener('click', function() {
+      const cal = parseInt(document.getElementById('normCaloriesInput').value);
+      const prot = parseInt(document.getElementById('normProteinsInput').value);
+      const fat = parseInt(document.getElementById('normFatsInput').value);
+      const carb = parseInt(document.getElementById('normCarbsInput').value);
+      if (!isNaN(cal)) norm.calories = cal;
+      if (!isNaN(prot)) norm.proteins = prot;
+      if (!isNaN(fat)) norm.fats = fat;
+      if (!isNaN(carb)) norm.carbs = carb;
+      updateNormDisplays();
+      normPopup.style.display = 'none';
+      updateTotals();
+    });
+    
+    // Отображение/скрытие формы добавления блюда
+    const openDishFormButton = document.getElementById('openDishForm');
+    const dishFormDiv = document.getElementById('dishForm');
+    openDishFormButton.addEventListener('click', function() {
+      dishFormDiv.style.display = dishFormDiv.style.display === 'none' ? 'block' : 'none';
+    });
+    
+    // Функция для вычисления и обновления суммарных значений
+    function updateTotals() {
+      let total = { calories: 0, proteins: 0, fats: 0, carbs: 0 };
+      dishes.forEach(dish => {
+        total.calories += dish.calories;
+        total.proteins += dish.proteins;
+        total.fats += dish.fats;
+        total.carbs += dish.carbs;
+      });
+      
+      document.getElementById('totalCalories').textContent = total.calories;
+      document.getElementById('totalProteins').textContent = total.proteins;
+      document.getElementById('totalFats').textContent = total.fats;
+      document.getElementById('totalCarbs').textContent = total.carbs;
+      
+      document.getElementById('percCalories').textContent = norm.calories ? Math.round(total.calories / norm.calories * 100) : 0;
+      document.getElementById('percProteins').textContent = norm.proteins ? Math.round(total.proteins / norm.proteins * 100) : 0;
+      document.getElementById('percFats').textContent = norm.fats ? Math.round(total.fats / norm.fats * 100) : 0;
+      document.getElementById('percCarbs').textContent = norm.carbs ? Math.round(total.carbs / norm.carbs * 100) : 0;
+    }
+    
+    // Добавление блюда в таблицу
+    function addDishToTable(dish, index) {
+      const tableBody = document.getElementById('dishTable').querySelector('tbody');
+      const row = document.createElement('tr');
+      row.innerHTML = `
+        <td>Блюдо ${index + 1}</td>
+        <td contenteditable="true" data-index="${index}" data-field="calories">${dish.calories}</td>
+        <td contenteditable="true" data-index="${index}" data-field="proteins">${dish.proteins}</td>
+        <td contenteditable="true" data-index="${index}" data-field="fats">${dish.fats}</td>
+        <td contenteditable="true" data-index="${index}" data-field="carbs">${dish.carbs}</td>
+        <td>${dish.weight}</td>
+        <td><button data-index="${index}" class="deleteDish">Удалить</button></td>
+      `;
+      tableBody.appendChild(row);
+    }
+    
+    // Перерисовка таблицы блюд
+    function refreshDishTable() {
+      const tableBody = document.getElementById('dishTable').querySelector('tbody');
+      tableBody.innerHTML = '';
+      dishes.forEach((dish, index) => {
+        addDishToTable(dish, index);
+      });
+    }
+    
+    // Редактирование значений прямо в таблице
+    document.getElementById('dishTable').addEventListener('input', function(e) {
+      if (e.target.tagName === 'TD' && e.target.isContentEditable) {
+        const index = e.target.getAttribute('data-index');
+        const field = e.target.getAttribute('data-field');
+        const newValue = parseFloat(e.target.textContent);
+        if (!isNaN(newValue)) {
+          dishes[index][field] = newValue;
+          updateTotals();
+        }
+      }
+    });
+    
+    // Удаление блюда
+    document.getElementById('dishTable').addEventListener('click', function(e) {
+      if (e.target.classList.contains('deleteDish')) {
+        const index = e.target.getAttribute('data-index');
+        dishes.splice(index, 1);
+        refreshDishTable();
+        updateTotals();
+      }
+    });
+    
+    // Отправка данных нового блюда на API Google Gemini
+    document.getElementById('submitDish').addEventListener('click', function() {
+      const imageInput = document.getElementById('dishImage');
+      const weightInput = document.getElementById('dishWeight');
+      if (imageInput.files.length === 0 || !weightInput.value) {
+        alert('Выберите изображение и введите вес блюда.');
+        return;
+      }
+      const weight = parseFloat(weightInput.value);
+      const file = imageInput.files[0];
+      
+      // Формируем FormData для отправки
+      const formData = new FormData();
+      formData.append('image', file);
+      formData.append('weight', weight);
+      formData.append('api_key', 'AIzaSyClKD_iF9CtlmRlOiz_Cg6WCjkBPF7bi8Q');
+      
+      // Вызов API (замените URL на реальный)
+      fetch('https://example.com/api/gemini', {
+        method: 'POST',
+        body: formData
+      })
+      .then(response => response.text())
+      .then(data => {
+        // Ожидается строка вида "калории,белки,жиры,углеводы"
+        const parts = data.split(',');
+        if (parts.length === 4) {
+          const dish = {
+            calories: parseFloat(parts[0]),
+            proteins: parseFloat(parts[1]),
+            fats: parseFloat(parts[2]),
+            carbs: parseFloat(parts[3]),
+            weight: weight
+          };
+          dishes.push(dish);
+          refreshDishTable();
+          updateTotals();
+        } else {
+          alert('Ошибка в ответе от API.');
+        }
+      })
+      .catch(error => {
+        console.error('Ошибка API:', error);
+        alert('Ошибка при отправке данных на API.');
+      });
+    });
+    
+    // Сброс всех введённых значений (например, в конце дня)
+    document.getElementById('resetTotals').addEventListener('click', function() {
+      dishes = [];
+      refreshDishTable();
+      updateTotals();
+    });
+    
+    // Начальное отображение норм и сумм
+    updateNormDisplays();
+    updateTotals();
+  </script>
+</body>
+</html>
