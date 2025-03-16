@@ -251,7 +251,7 @@
       }
     });
     
-    // Отправка данных нового блюда на API Google Gemini
+    // Отправка данных нового блюда на сервер для интеграции с Gemini
     document.getElementById('submitDish').addEventListener('click', function() {
       const imageInput = document.getElementById('dishImage');
       const weightInput = document.getElementById('dishWeight');
@@ -266,10 +266,9 @@
       const formData = new FormData();
       formData.append('image', file);
       formData.append('weight', weight);
-      formData.append('api_key', 'AIzaSyClKD_iF9CtlmRlOiz_Cg6WCjkBPF7bi8Q');
       
-      // Вызов API (замените URL на реальный)
-      fetch('https://example.com/api/gemini', {
+      // Вызов серверного API для Gemini
+      fetch('/api/gemini', {
         method: 'POST',
         body: formData
       })
@@ -289,12 +288,12 @@
           refreshDishTable();
           updateTotals();
         } else {
-          alert('Ошибка в ответе от API.');
+          alert('Ошибка в ответе от Gemini API.');
         }
       })
       .catch(error => {
-        console.error('Ошибка API:', error);
-        alert('Ошибка при отправке данных на API.');
+        console.error('Ошибка при вызове API:', error);
+        alert('Ошибка при отправке данных на сервер.');
       });
     });
     
